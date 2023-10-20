@@ -4,7 +4,7 @@ import { Box, Card, CardContent, CardMedia, Rating, SelectChangeEvent, Stack, Ty
 import Image from 'next/image';
 
 import React, { useCallback, useState } from 'react';
-import { MovieCard, MovieImage, MoviesListContainer } from './styled';
+import { FavoriteToggle, MovieCard, MovieImage, MoviesListContainer } from './styled';
 import { ImageWrapper } from '@/src/components/SpotLight/styled';
 
 const TopList = () => {
@@ -41,28 +41,26 @@ const TopList = () => {
               </MovieImage>
 
               <CardContent>
-                <Stack direction='row' alignItems='center' justifyContent='space-between' gap={3}>
+                <Stack direction='row' alignItems='center' justifyContent='space-between' gap={3} mb={1}>
                   <Typography variant='h5' component='div'>
                     Lizard
                   </Typography>
 
-                  <Rating
+                  <FavoriteToggle
                     max={1}
                     name='favorite'
                     highlightSelectedOnly
                     onChange={() => handleSaveToFavorite('1212')}
-                    sx={{
-                      '& .MuiRating-iconEmpty': {
-                        color: '#fff',
-                      },
-                      '& .MuiRating-iconFilled': {
-                        color: '#2FBAD1',
-                      },
-                    }}
                   />
                 </Stack>
 
-                <Typography variant='body2'>2023</Typography>
+                <Stack direction='row' alignItems='center' gap={2}>
+                  <Typography variant='body2' color='#8ACDA3'>
+                    98% Match
+                  </Typography>
+
+                  <Typography variant='body2'>2023</Typography>
+                </Stack>
               </CardContent>
             </MovieCard>
           ))}

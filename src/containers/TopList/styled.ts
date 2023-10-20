@@ -1,4 +1,4 @@
-import { AppBar, Box, Card, Toolbar, Typography, styled } from '@mui/material';
+import { AppBar, Box, Card, Rating, Toolbar, Typography, styled } from '@mui/material';
 
 export const MoviesListContainer = styled(Box)(({ theme }) => ({
   display: 'grid',
@@ -24,4 +24,13 @@ export const MovieCard = styled(Card)(({ theme }) => ({
 export const MovieImage = styled(Box)(({ theme }) => ({
   position: 'relative',
   height: '170px',
+}));
+
+export const FavoriteToggle = styled(Rating)(({ theme }) => ({
+  '& .MuiRating-iconEmpty': {
+    color: '#fff',
+  },
+  '& .MuiRating-iconFilled': {
+    color: '#2FBAD1',
+  },
 }));
