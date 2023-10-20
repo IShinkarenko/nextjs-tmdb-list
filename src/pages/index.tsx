@@ -1,8 +1,8 @@
-import Head from 'next/head';
 import MainLayout from '../layouts/MainLayout';
+import TopList from '../containers/TopList';
 
 const IndexPage = () => {
-  return <div>indwewedewdewex</div>;
+  return <TopList />;
 };
 
 IndexPage.getLayout = (page: React.ReactNode) => <MainLayout>{page}</MainLayout>;

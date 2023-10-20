@@ -15,6 +15,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: '#fff',
+          borderBottom: '1px solid #fff',
+          outline: 'none',
+          '& svg': {
+            color: '#fff',
+          },
+        },
+      },
+    },
   },
 });
 

@@ -1,4 +1,4 @@
-import '@/src/styles/globals.css';
+import '@/src/global.css';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <QueryClientProvider client={queryClient}>
         <CssBaseline />
 
-        <main>{getLayout(<Component {...pageProps} />)}</main>
+        {getLayout(<Component {...pageProps} />)}
       </QueryClientProvider>
     </ThemeProvider>
   );
