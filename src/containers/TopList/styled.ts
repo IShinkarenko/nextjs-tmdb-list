@@ -3,7 +3,7 @@ import { AppBar, Box, Card, Toolbar, Typography, styled } from '@mui/material';
 export const MoviesListContainer = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(5, 1fr)',
-  gridGap: '16px',
+  gap: '24px',
   marginTop: '50px',
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -23,5 +23,5 @@ export const MovieCard = styled(Card)(({ theme }) => ({
 
 export const MovieImage = styled(Box)(({ theme }) => ({
   position: 'relative',
-  height: '200px',
+  height: '170px',
 }));

@@ -1,6 +1,6 @@
 import SortBy from '@/src/components/SortBy';
 import Spotlight from '@/src/components/SpotLight';
-import { Box, Card, CardContent, CardMedia, Rating, SelectChangeEvent, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Rating, SelectChangeEvent, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 
 import React, { useCallback, useState } from 'react';
@@ -27,33 +27,45 @@ const TopList = () => {
         <SortBy value={order} handleChange={handleChangeOrder} />
 
         <MoviesListContainer>
-          <MovieCard>
-            <MovieImage>
-              <Image
-                alt='movie-1'
-                src={'/movie-1.jpg'}
-                blurDataURL={'/spotlight.jpg'}
-                layout='fill'
-                objectFit='cover'
-                placeholder='blur'
-              />
-            </MovieImage>
+          {Array.from(new Array(10)).map((_, index) => (
+            <MovieCard>
+              <MovieImage>
+                <Image
+                  alt='movie-1'
+                  src={'/movie-1.jpg'}
+                  blurDataURL={'/spotlight.jpg'}
+                  layout='fill'
+                  objectFit='cover'
+                  placeholder='blur'
+                />
+              </MovieImage>
 
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
+              <CardContent>
+                <Stack direction='row' alignItems='center' justifyContent='space-between' gap={3}>
+                  <Typography variant='h5' component='div'>
+                    Lizard
+                  </Typography>
 
-              <Typography variant='body2'>2023</Typography>
+                  <Rating
+                    max={1}
+                    name='favorite'
+                    highlightSelectedOnly
+                    onChange={() => handleSaveToFavorite('1212')}
+                    sx={{
+                      '& .MuiRating-iconEmpty': {
+                        color: '#fff',
+                      },
+                      '& .MuiRating-iconFilled': {
+                        color: '#2FBAD1',
+                      },
+                    }}
+                  />
+                </Stack>
 
-              <Rating max={1} name='favorite' highlightSelectedOnly onChange={() => handleSaveToFavorite('1212')} />
-            </CardContent>
-          </MovieCard>
-
-          <Box>dwwdwed</Box>
-          <Box>dwwdwed</Box>
-          <Box>dwwdwed</Box>
-          <Box>dwwdwed</Box>
+                <Typography variant='body2'>2023</Typography>
+              </CardContent>
+            </MovieCard>
+          ))}
         </MoviesListContainer>
       </Box>
     </>
