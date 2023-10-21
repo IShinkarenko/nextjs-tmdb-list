@@ -10,8 +10,11 @@ export const StyledAppBar = styled(AppBar)`
   background-color: transparent;
 `;
 
-export const StyledToolbar = styled(Toolbar)`
-  display: flex;
-  padding: 0 32px;
-  gap: 48px;
-`;
+export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  display: 'flex',
+  padding: '0 32px',
+  gap: 48,
+  [theme.breakpoints.down('md')]: {
+    padding: '0 14px',
+  },
+}));

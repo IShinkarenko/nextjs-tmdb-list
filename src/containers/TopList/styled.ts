@@ -5,6 +5,9 @@ export const MoviesListContainer = styled(Box)(({ theme }) => ({
   gridTemplateColumns: 'repeat(5, 1fr)',
   gap: '24px',
   marginTop: '50px',
+  [theme.breakpoints.down('lg')]: {
+    gridTemplateColumns: 'repeat(4, 1fr)',
+  },
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
@@ -16,21 +19,7 @@ export const MoviesListContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const MovieCard = styled(Card)(({ theme }) => ({
-  backgroundColor: '#181818',
-  color: '#fff',
-}));
-
-export const MovieImage = styled(Box)(({ theme }) => ({
-  position: 'relative',
-  height: '170px',
-}));
-
-export const FavoriteToggle = styled(Rating)(({ theme }) => ({
-  '& .MuiRating-iconEmpty': {
-    color: '#fff',
-  },
-  '& .MuiRating-iconFilled': {
-    color: '#2FBAD1',
-  },
+export const MoviesSection = styled(Box)(({ theme }) => ({
+  marginTop: '100px',
+  padding: '0 24px',
 }));

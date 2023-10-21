@@ -11,7 +11,6 @@ const Header = () => {
 
         <Stack direction='row' gap={3}>
           <Typography variant='subtitle2'>Home</Typography>
-          <Typography variant='subtitle2'>Top 500 movies</Typography>
         </Stack>
       </StyledToolbar>
     </StyledAppBar>

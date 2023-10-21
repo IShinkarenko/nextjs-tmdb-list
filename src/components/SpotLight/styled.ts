@@ -15,7 +15,7 @@ export const SpotlightContainer = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(to right, #02181e, #043740)',
   [theme.breakpoints.down('md')]: {
     height: 550,
-    padding: '0 7px',
+    padding: '0 14px',
   },
 }));
 

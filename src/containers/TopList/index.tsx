@@ -1,71 +1,62 @@
 import SortBy from '@/src/components/SortBy';
 import Spotlight from '@/src/components/SpotLight';
-import { Box, Card, CardContent, CardMedia, Rating, SelectChangeEvent, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
+import { Box, Pagination, SelectChangeEvent, Stack } from '@mui/material';
 
 import React, { useCallback, useState } from 'react';
-import { FavoriteToggle, MovieCard, MovieImage, MoviesListContainer } from './styled';
-import { ImageWrapper } from '@/src/components/SpotLight/styled';
+import { MoviesListContainer, MoviesSection } from './styled';
+import MovieItem from '@/src/components/MovieItem';
+import { useQuery } from '@tanstack/react-query';
+import api from '@/src/services/api';
 
 const TopList = () => {
   const [order, setOrder] = useState('ASC');
+  const [page, setPage] = React.useState(1);
+
+  const { isLoading, isError, data, isFetching } = useQuery({
+    queryKey: ['movies'],
+    queryFn: () => api.movies.getMovies(`here will be query params - page/order`),
+  });
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   const handleChangeOrder = useCallback((event: SelectChangeEvent) => {
     setOrder(event.target.value as string);
   }, []);
 
   const handleSaveToFavorite = useCallback((movieId: string) => {
-    //save to local storage
     console.log(movieId);
   }, []);
 
   return (
     <>
-      <Spotlight />
+      <Spotlight
+        title='Enjoy big movies, hit series and more'
+        subtitle='Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.'
+        poster='/spotlight.jpg'
+      />
 
-      <Box mt={10} p='0 58px'>
+      <MoviesSection>
         <SortBy value={order} handleChange={handleChangeOrder} />
 
         <MoviesListContainer>
           {Array.from(new Array(10)).map((_, index) => (
-            <MovieCard>
-              <MovieImage>
-                <Image
-                  alt='movie-1'
-                  src={'/movie-1.jpg'}
-                  blurDataURL={'/spotlight.jpg'}
-                  layout='fill'
-                  objectFit='cover'
-                  placeholder='blur'
-                />
-              </MovieImage>
-
-              <CardContent>
-                <Stack direction='row' alignItems='center' justifyContent='space-between' gap={3} mb={1}>
-                  <Typography variant='h5' component='div'>
-                    Lizard
-                  </Typography>
-
-                  <FavoriteToggle
-                    max={1}
-                    name='favorite'
-                    highlightSelectedOnly
-                    onChange={() => handleSaveToFavorite('1212')}
-                  />
-                </Stack>
-
-                <Stack direction='row' alignItems='center' gap={2}>
-                  <Typography variant='body2' color='#8ACDA3'>
-                    98% Match
-                  </Typography>
-
-                  <Typography variant='body2'>2023</Typography>
-                </Stack>
-              </CardContent>
-            </MovieCard>
+            <MovieItem
+              id={index.toString()}
+              image={'/movie-1.jpg'}
+              title='Lizard'
+              year='2023'
+              rating={98}
+              handleToggleFavorite={handleSaveToFavorite}
+            />
           ))}
         </MoviesListContainer>
-      </Box>
+
+        <Stack direction='row' mt={7} justifyContent='center'>
+          <Pagination count={10} page={page} onChange={handleChange} />
+        </Stack>
+      </MoviesSection>
     </>
   );
 };
