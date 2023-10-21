@@ -12,10 +12,10 @@ const TopList = () => {
   const [order, setOrder] = useState('ASC');
   const [page, setPage] = React.useState(1);
 
-  const { isLoading, isError, data, isFetching } = useQuery({
-    queryKey: ['movies'],
-    queryFn: () => api.movies.getMovies(`here will be query params - page/order`),
-  });
+  // const { isLoading, isError, data, isFetching } = useQuery({
+  //   queryKey: ['movies'],
+  //   queryFn: () => api.movies.getMovies(`here will be query params - page/order`),
+  // });
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -43,6 +43,7 @@ const TopList = () => {
         <MoviesListContainer>
           {Array.from(new Array(10)).map((_, index) => (
             <MovieItem
+              key={index}
               id={index.toString()}
               image={'/movie-1.jpg'}
               title='Lizard'

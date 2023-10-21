@@ -1,16 +1,17 @@
-import { AppBar, Box, Card, Rating, Toolbar, Typography, styled } from '@mui/material';
+import { Box, Card, Rating, styled } from '@mui/material';
 
-export const MovieCard = styled(Card)(({ theme }) => ({
+export const MovieCard = styled(Card)(() => ({
   backgroundColor: '#181818',
   color: '#fff',
   cursor: 'pointer',
   transition: 'transform 0.2s ease-in-out',
+  willChange: 'transform',
   '&:hover': {
     transform: 'scale(1.02)',
   },
 }));
 
-export const MovieImage = styled(Box)(({ theme }) => ({
+export const MovieImage = styled(Box)(() => ({
   position: 'relative',
   '& img': {
     objectFit: 'contain',
@@ -20,7 +21,10 @@ export const MovieImage = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const FavoriteToggle = styled(Rating)(({ theme }) => ({
+export const FavoriteToggle = styled(Rating)(() => ({
+  position: 'absolute',
+  right: '0',
+  zIndex: 5,
   '& .MuiRating-iconEmpty': {
     color: '#fff',
   },
