@@ -57,7 +57,7 @@ export const Subtitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const ImageWrapper = styled(Box)(({ theme }) => ({
+export const ImageWrapper = styled(Box)(() => ({
   position: 'absolute',
   height: '100%',
   width: '100%',

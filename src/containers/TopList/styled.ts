@@ -19,7 +19,7 @@ export const MoviesListContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const MoviesSection = styled(Box)(({ theme }) => ({
+export const MoviesSection = styled(Box)(() => ({
   marginTop: '100px',
   padding: '0 24px',
 }));
