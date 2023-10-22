@@ -17,6 +17,7 @@ const MovieItem: FC<MovieCardProps> = ({
   handleToggleFavorite,
 }) => {
   const imageURL = image ? MOVIE_DB_IMAGE_URL + image : '/image-placeholder.webp';
+
   const handleChange = () => {
     handleToggleFavorite(id);
   };
@@ -29,7 +30,7 @@ const MovieItem: FC<MovieCardProps> = ({
     <MovieCard
       onClick={handleOpenMovie}
       sx={{
-        border: isAddedToFavorites ? '2px solid #2FBAD1' : '2px solid transparent',
+        border: isAddedToFavorites ? '1px solid #2FBAD1' : '1px solid transparent',
       }}
     >
       <MovieImage>
