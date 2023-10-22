@@ -25,6 +25,7 @@ const TopList: FC = () => {
   }, []);
 
   const {
+    isLoading,
     isError,
     data: popularMovies,
     isFetching,
@@ -81,7 +82,7 @@ const TopList: FC = () => {
         <SortBy value={order} isSortingDisabled={isFetching || isError} handleChange={handleChangeOrder} />
 
         <MoviesListContainer>
-          <TableSkeleton isLoading={isFetching}>
+          <TableSkeleton isLoading={isFetching || isLoading}>
             {popularMovies?.results.map(({ id, backdrop_path, title, original_title, release_date, vote_average }) => (
               <MovieItem
                 key={id}
