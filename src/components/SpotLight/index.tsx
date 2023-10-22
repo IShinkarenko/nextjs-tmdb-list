@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material';
-import React, { FC } from 'react';
-import { ImageWrapper, SpotlightContainer, Subtitle, Title } from './styled';
 import Image from 'next/image';
+import React, { FC, memo } from 'react';
+
+import { ImageWrapper, SpotlightContainer, Subtitle, Title } from './styled';
 import { SpotLightProps } from './types';
 
 const Spotlight: FC<SpotLightProps> = ({ title, subtitle, poster }) => {
@@ -19,4 +19,4 @@ const Spotlight: FC<SpotLightProps> = ({ title, subtitle, poster }) => {
   );
 };
 
-export default Spotlight;
+export default memo(Spotlight);

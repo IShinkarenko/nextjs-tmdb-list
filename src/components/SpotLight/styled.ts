@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography, styled } from '@mui/material';
+import { Box, styled, Typography } from '@mui/material';
 
 export const SpotlightContainer = styled(Box)(({ theme }) => ({
   height: '75vh',

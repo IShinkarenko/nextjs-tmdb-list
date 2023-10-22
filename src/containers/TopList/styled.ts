@@ -1,4 +1,4 @@
-import { AppBar, Box, Card, Rating, Toolbar, Typography, styled } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
 export const MoviesListContainer = styled(Box)(({ theme }) => ({
   display: 'grid',
@@ -14,7 +14,7 @@ export const MoviesListContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
-  [theme.breakpoints.down('xs')]: {
+  '@media (max-width: 420px)': {
     gridTemplateColumns: 'repeat(1, 1fr)',
   },
 }));

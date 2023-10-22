@@ -1,8 +1,9 @@
 export type MovieCardProps = {
-  id: string;
+  id: number;
   image: string;
   title: string;
   year: string;
   rating: number;
-  handleToggleFavorite: (id: string) => void;
+  isAddedToFavorites: boolean;
+  handleToggleFavorite: (id: number) => void;
 };

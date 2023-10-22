@@ -1,5 +1,5 @@
-import MainLayout from '../layouts/MainLayout';
 import TopList from '../containers/TopList';
+import MainLayout from '../layouts/MainLayout';
 
 const IndexPage = () => {
   return <TopList />;

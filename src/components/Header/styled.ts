@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, styled } from '@mui/material';
+import { AppBar, styled,Toolbar } from '@mui/material';
 
 export const StyledAppBar = styled(AppBar)`
   box-shadow: none;

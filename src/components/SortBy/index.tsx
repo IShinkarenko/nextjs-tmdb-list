@@ -1,8 +1,11 @@
 import { FormControl, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { FC, memo } from 'react';
+
+import {ASC_ORDER, DESC_ORDER} from "@/src/constant/common-constants";
+
 import { SortByProps } from './types';
 
-const SortBy: FC<SortByProps> = ({ value, handleChange }) => {
+const SortBy: FC<SortByProps> = ({ value, isSortingDisabled, handleChange }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -15,10 +18,10 @@ const SortBy: FC<SortByProps> = ({ value, handleChange }) => {
       <Stack direction='row' alignItems='center' gap={3}>
         <Typography variant='subtitle1'>Order by</Typography>
 
-        <FormControl variant='standard' size='small' sx={{ width: '70px' }}>
-          <Select value={value} label='Age' onChange={handleChange}>
-            <MenuItem value={'ASC'}>ASC</MenuItem>
-            <MenuItem value={'DESC'}>DESC</MenuItem>
+        <FormControl variant='standard' size='small' sx={{ width: '70px' }} disabled={isSortingDisabled}>
+          <Select value={value} onChange={handleChange}>
+            <MenuItem value={ASC_ORDER}>{ASC_ORDER}</MenuItem>
+            <MenuItem value={DESC_ORDER}>{DESC_ORDER}</MenuItem>
           </Select>
         </FormControl>
       </Stack>

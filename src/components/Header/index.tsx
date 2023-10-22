@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { StyledAppBar, StyledToolbar } from './styled';
-import Image from 'next/image';
 import { Stack, Typography } from '@mui/material';
+import Image from 'next/image';
+import React, {FC, memo} from 'react';
 
-const Header = () => {
+import { StyledAppBar, StyledToolbar } from './styled';
+
+const Header: FC = () => {
   return (
     <StyledAppBar position='absolute'>
       <StyledToolbar>
@@ -16,4 +17,4 @@ const Header = () => {
     </StyledAppBar>
   );
 };
-export default Header;
+export default memo(Header);
