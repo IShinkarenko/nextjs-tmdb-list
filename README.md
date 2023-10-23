@@ -18,4 +18,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed on Vercel
 
-See demo - [https://nextjs-tmdb-list-git-main-ishinkarenko.vercel.app/](https://nextjs-tmdb-list-git-main-ishinkarenko.vercel.app/)
+See demo - [nextjs-tmdb-list.vercel.app](nextjs-tmdb-list.vercel.app)
