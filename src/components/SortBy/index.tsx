@@ -1,7 +1,7 @@
 import { FormControl, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { FC, memo } from 'react';
 
-import {ASC_ORDER, DESC_ORDER} from "@/src/constant/common-constants";
+import { ASC_ORDER, DESC_ORDER } from '@/src/constant/common-constants';
 
 import { SortByProps } from './types';
 
@@ -10,8 +10,8 @@ const SortBy: FC<SortByProps> = ({ value, isSortingDisabled, handleChange }) => 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Stack direction='row' justifyContent='space-between'>
-      <Typography variant={isMobile ? 'h6' : 'h4'} fontWeight={700}>
+    <Stack direction={isMobile ? 'column' : 'row'} justifyContent='space-between' gap={3}>
+      <Typography variant={isMobile ? 'h5' : 'h4'} fontWeight={700}>
         Top 500 Movies
       </Typography>
 

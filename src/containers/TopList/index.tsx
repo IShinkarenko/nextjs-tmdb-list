@@ -99,7 +99,12 @@ const TopList: FC = () => {
         </MoviesListContainer>
 
         <Stack direction='row' mt={7} justifyContent='center'>
-          <Pagination count={Math.ceil(TOTAL_ITEMS_TO_SHOW / ITEMS_PER_PAGE)} page={page} onChange={handleChange} />
+          <Pagination
+            count={Math.ceil(TOTAL_ITEMS_TO_SHOW / ITEMS_PER_PAGE)}
+            page={page}
+            onChange={handleChange}
+            size='small'
+          />
         </Stack>
       </MoviesSection>
     </>
